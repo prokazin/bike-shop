@@ -1,0 +1,257 @@
+/* style.css — сайт как велосипед */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: #0b1a1e;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.bike-frame {
+    max-width: 1200px;
+    width: 100%;
+    background: #162b30;
+    border-radius: 60px 60px 30px 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 0 4px #3d6b73;
+    padding: 25px;
+    border-bottom: 12px solid #2b4f57;
+}
+
+.frame-content {
+    background: #1d3a41;
+    border-radius: 40px 40px 20px 20px;
+    padding: 20px 25px;
+    box-shadow: inset 0 0 0 3px #4a7b85, 0 8px 0 #0e1f23;
+}
+
+/* Руль */
+.handlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #2d515a;
+    padding: 12px 24px;
+    border-radius: 60px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 -4px 0 #1a333a, 0 6px 0 #0a181c;
+    gap: 12px;
+}
+
+.brand {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #f0d89f;
+    text-shadow: 0 2px 0 #a57c3e;
+}
+
+.nav-spokes {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.nav-spokes a {
+    color: #d4e9ed;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 16px;
+    background: #1f3f47;
+    border-radius: 40px;
+    box-shadow: inset 0 -3px 0 #0e252b;
+    transition: 0.15s;
+}
+
+.nav-spokes a:hover {
+    background: #3f6b76;
+    transform: translateY(-2px);
+}
+
+.cart-bell {
+    background: #c79a4b;
+    padding: 6px 18px;
+    border-radius: 40px;
+    font-weight: 700;
+    color: #1d2f33;
+    box-shadow: inset 0 -3px 0 #8f6e30;
+}
+
+/* Колесо */
+.wheel-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0 30px;
+}
+
+.wheel-visual {
+    flex: 0 0 220px;
+    height: 220px;
+    text-align: center;
+}
+
+.tire {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #222f33;
+    box-shadow: inset 0 0 0 12px #2d4147, 0 10px 20px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rim {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: #3b5e66;
+    box-shadow: inset 0 0 0 8px #5b8893;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hub {
+    width: 44px;
+    height: 44px;
+    background: #f5d742;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 0 0 6px #4c2f1a, 0 6px 0 #3f2a14;
+    z-index: 5;
+    transition: 0.2s;
+}
+
+.hub:hover {
+    transform: scale(1.1);
+}
+
+.spoke {
+    position: absolute;
+    width: 6px;
+    height: 70px;
+    background: #b0c9ce;
+    border-radius: 6px;
+    transform-origin: center;
+    box-shadow: 0 0 0 1px #273e44;
+}
+
+.s1 { transform: rotate(0deg) translateY(-35px); }
+.s2 { transform: rotate(45deg) translateY(-35px); }
+.s3 { transform: rotate(90deg) translateY(-35px); }
+.s4 { transform: rotate(135deg) translateY(-35px); }
+.s5 { transform: rotate(180deg) translateY(-35px); }
+.s6 { transform: rotate(225deg) translateY(-35px); }
+.s7 { transform: rotate(270deg) translateY(-35px); }
+.s8 { transform: rotate(315deg) translateY(-35px); }
+
+.wheel-hint {
+    color: #7fa3a8;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* Товары */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    flex: 1;
+}
+
+.product-card {
+    background: #264249;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 30px 8px 30px 8px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #e5f0e7;
+    box-shadow: inset 0 -6px 0 #123036, 0 6px 0 #0b1b1f;
+    transition: 0.1s linear;
+    border-left: 4px solid #c7a14b;
+}
+
+.product-card small {
+    display: block;
+    font-size: 0.9rem;
+    color: #f5d98f;
+    margin-top: 6px;
+}
+
+.product-card:hover {
+    transform: scale(0.97);
+    background: #31575f;
+}
+
+/* Педали */
+.pedal {
+    margin-top: 25px;
+    background: #1f3d44;
+    padding: 14px 20px;
+    border-radius: 40px;
+    text-align: center;
+    color: #b7d3d6;
+    font-weight: 500;
+    box-shadow: inset 0 -4px 0 #0f252a;
+    letter-spacing: 0.8px;
+}
+
+/* Адаптив */
+@media (max-width: 650px) {
+    .handlebar {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .wheel-visual {
+        flex-basis: 160px;
+        height: 160px;
+    }
+    .tire {
+        width: 160px;
+        height: 160px;
+    }
+    .rim {
+        width: 120px;
+        height: 120px;
+    }
+    .spoke {
+        height: 50px;
+    }
+    .s1 { transform: rotate(0deg) translateY(-25px); }
+    .s2 { transform: rotate(45deg) translateY(-25px); }
+    .s3 { transform: rotate(90deg) translateY(-25px); }
+    .s4 { transform: rotate(135deg) translateY(-25px); }
+    .s5 { transform: rotate(180deg) translateY(-25px); }
+    .s6 { transform: rotate(225deg) translateY(-25px); }
+    .s7 { transform: rotate(270deg) translateY(-25px); }
+    .s8 { transform: rotate(315deg) translateY(-25px); }
+    .hub {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+}
