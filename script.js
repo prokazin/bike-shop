@@ -1,11 +1,22 @@
-// script.js — общая логика с уникальным ключом
-// Используем уникальный ключ, чтобы не пересекаться с другими проектами
-const STORAGE_KEY = 'bike_shop_products_v1';
+// script.js — логика с уникальным ключом
+const STORAGE_KEY = 'velo_store_products_v2';
 
-// === Управление товарами ===
+// === 8 стартовых товаров ===
+function getDefaultProducts() {
+    return [
+        { id: 1, name: 'Trek Fuel EX 8', brand: 'Trek', price: 189000, emoji: '🏔️', badge: 'Топ' },
+        { id: 2, name: 'Specialized Stumpjumper', brand: 'Specialized', price: 215000, emoji: '🚵', badge: 'Хит' },
+        { id: 3, name: 'Canyon Spectral CF 7', brand: 'Canyon', price: 172000, emoji: '⚡', badge: 'Новинка' },
+        { id: 4, name: 'Giant Trance Advanced', brand: 'Giant', price: 198000, emoji: '🌟', badge: '' },
+        { id: 5, name: 'Scott Spark 940', brand: 'Scott', price: 156000, emoji: '🏁', badge: 'Скидка' },
+        { id: 6, name: 'Merida Big Nine 6000', brand: 'Merida', price: 134000, emoji: '🚴', badge: '' },
+        { id: 7, name: 'Cube Stereo Hybrid 140', brand: 'Cube', price: 245000, emoji: '🔋', badge: 'Электро' },
+        { id: 8, name: 'Santa Cruz Bronson', brand: 'Santa Cruz', price: 289000, emoji: '🔥', badge: 'Премиум' }
+    ];
+}
+
 let products = [];
 
-// Загрузка из localStorage с уникальным ключом
 function loadProducts() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -21,21 +32,11 @@ function loadProducts() {
     return products;
 }
 
-// Стартовые товары
-function getDefaultProducts() {
-    return [
-        { id: 1, name: 'Горный', price: 45000, emoji: '🏁' },
-        { id: 2, name: 'Электро', price: 78000, emoji: '⚡' },
-        { id: 3, name: 'Шоссейный', price: 62000, emoji: '🚴' },
-        { id: 4, name: 'Детский', price: 19000, emoji: '🛞' }
-    ];
-}
-
 function saveProducts() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
 }
 
-// === Рендер на главной странице ===
+// === Рендер на главной ===
 function renderMainProducts() {
     const container = document.getElementById('productList');
     if (!container) return;
@@ -43,53 +44,75 @@ function renderMainProducts() {
     const list = loadProducts();
     container.innerHTML = list.map(p => `
         <div class="product-card" data-id="${p.id}">
-            ${p.emoji || '🚲'} ${p.name}
-            <small>₽ ${p.price.toLocaleString()}</small>
+            <div class="product-image">
+                ${p.emoji || '🚲'}
+                ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+            </div>
+            <div class="product-info">
+                <div class="brand">${p.brand || 'VELO'}</div>
+                <h3>${p.name}</h3>
+                <div class="specs">
+                    <span>⚙️ 2026</span>
+                    <span>🚲 Горный</span>
+                </div>
+                <div class="product-price-row">
+                    <span class="product-price">${p.price.toLocaleString()} ₽</span>
+                    <span class="product-status">● В наличии</span>
+                </div>
+            </div>
         </div>
     `).join('');
 }
 
-// === Рендер в админ-панели ===
+// === Рендер в админке ===
 function renderAdminProducts() {
     const container = document.getElementById('adminProductList');
     if (!container) return;
 
     const list = loadProducts();
     if (list.length === 0) {
-        container.innerHTML = '<div class="empty-message">Товаров пока нет. Добавьте первый!</div>';
+        container.innerHTML = '<div class="empty-message">📭 Товаров пока нет. Добавьте первый!</div>';
     } else {
         container.innerHTML = list.map(p => `
             <div class="admin-product-item" data-id="${p.id}">
                 <div class="product-info">
-                    <span>${p.emoji || '🚲'} ${p.name}</span>
-                    <span class="product-price">₽ ${p.price.toLocaleString()}</span>
+                    <span>${p.emoji || '🚲'}</span>
+                    <strong>${p.name}</strong>
+                    <span class="product-brand">${p.brand || ''}</span>
+                    <span class="product-price">${p.price.toLocaleString()} ₽</span>
+                    ${p.badge ? `<span style="font-size:0.7rem;background:#e94560;color:#fff;padding:2px 10px;border-radius:30px;">${p.badge}</span>` : ''}
                 </div>
                 <button class="delete-btn" onclick="deleteProduct(${p.id})">✕ Удалить</button>
             </div>
         `).join('');
     }
 
-    // Обновляем счетчик
     const counter = document.getElementById('productCount');
     if (counter) counter.textContent = list.length;
 
-    // Обновляем выручку (сумма всех цен)
+    const total = list.reduce((sum, p) => sum + p.price, 0);
     const revenue = document.getElementById('totalRevenue');
-    if (revenue) {
-        const total = list.reduce((sum, p) => sum + p.price, 0);
-        revenue.textContent = `₽ ${total.toLocaleString()}`;
+    if (revenue) revenue.textContent = `₽ ${total.toLocaleString()}`;
+
+    const avg = document.getElementById('avgPrice');
+    if (avg && list.length > 0) {
+        avg.textContent = `₽ ${Math.round(total / list.length).toLocaleString()}`;
+    } else if (avg) {
+        avg.textContent = '₽ 0';
     }
 }
 
-// === Добавление товара ===
-function addProduct(name, price, emoji) {
+// === Добавление ===
+function addProduct(name, brand, price, emoji) {
     const list = loadProducts();
     const newId = list.length > 0 ? Math.max(...list.map(p => p.id)) + 1 : 1;
     list.push({
         id: newId,
         name: name.trim(),
+        brand: brand.trim() || 'VELO',
         price: parseInt(price),
-        emoji: emoji.trim() || '🚲'
+        emoji: emoji.trim() || '🚲',
+        badge: ''
     });
     products = list;
     saveProducts();
@@ -97,7 +120,7 @@ function addProduct(name, price, emoji) {
     renderMainProducts();
 }
 
-// === Удаление товара ===
+// === Удаление ===
 function deleteProduct(id) {
     if (!confirm('Удалить товар?')) return;
     let list = loadProducts();
@@ -108,52 +131,55 @@ function deleteProduct(id) {
     renderMainProducts();
 }
 
-// === Очистка всех данных (для отладки) ===
+// === Очистка ===
 function clearAllData() {
-    if (confirm('Удалить все товары?')) {
+    if (confirm('Сбросить каталог к 8 стандартным товарам?')) {
         localStorage.removeItem(STORAGE_KEY);
         products = getDefaultProducts();
         saveProducts();
         renderAdminProducts();
         renderMainProducts();
-        alert('✅ Данные сброшены до стандартных');
+        alert('✅ Каталог восстановлен!');
     }
 }
 
 // === Инициализация ===
 document.addEventListener('DOMContentLoaded', function() {
-    // Загружаем товары
     loadProducts();
-
-    // Рендерим главную страницу
     renderMainProducts();
 
-    // Рендерим админку (если мы на странице admin.html)
     if (document.getElementById('adminProductList')) {
         renderAdminProducts();
     }
 
-    // === Форма добавления товара ===
     const form = document.getElementById('addProductForm');
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('productName').value;
+            const brand = document.getElementById('productBrand').value;
             const price = document.getElementById('productPrice').value;
             const emoji = document.getElementById('productEmoji').value;
 
             if (name && price) {
-                addProduct(name, price, emoji);
+                addProduct(name, brand, price, emoji);
                 form.reset();
-                alert('✅ Товар добавлен!');
+                alert('✅ Товар добавлен в каталог!');
             } else {
                 alert('⚠️ Заполните название и цену');
             }
         });
     }
 
-    // Секретная кнопка для сброса данных (для разработчика)
-    // Нажмите Shift+Ctrl+Alt+D на админке
+    // Ссылка на админку
+    const adminLink = document.getElementById('adminLink');
+    if (adminLink) {
+        adminLink.addEventListener('click', () => {
+            window.location.href = 'admin.html';
+        });
+    }
+
+    // Секретный сброс: Shift+Ctrl+Alt+D
     document.addEventListener('keydown', function(e) {
         if (e.shiftKey && e.ctrlKey && e.altKey && e.key === 'd') {
             if (document.getElementById('adminProductList')) {
