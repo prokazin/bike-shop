@@ -1,4 +1,4 @@
-/* style.css — реалистичный дизайн велосипедного салона */
+/* style.css — сайт в форме велосипеда */
 * {
     margin: 0;
     padding: 0;
@@ -6,558 +6,392 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f4f6f8;
-    color: #1a1a2e;
-    line-height: 1.6;
+    background: #0a0e14;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 30px;
 }
 
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 30px;
+/* === ВЕЛОСИПЕД === */
+.bicycle {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    padding: 30px 10px;
 }
 
-/* === Верхняя планка === */
-.top-bar {
+/* === КОЛЁСА === */
+.front-wheel,
+.rear-wheel {
+    flex: 0 0 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tire {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
     background: #1a1a2e;
-    color: #b0b0c8;
-    font-size: 0.85rem;
-    padding: 8px 0;
-    border-bottom: 2px solid #e94560;
-}
-
-.top-bar .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.top-bar span {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* === Шапка === */
-.main-header {
-    background: #ffffff;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.logo-icon {
-    font-size: 2.4rem;
-    background: #e94560;
-    color: white;
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
+    box-shadow: inset 0 0 0 10px #2a2a44, 0 8px 30px rgba(0,0,0,0.7);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
+    animation: spin 30s linear infinite;
 }
 
-.logo h1 {
-    font-size: 1.8rem;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    color: #1a1a2e;
-    line-height: 1;
-}
-
-.logo-sub {
-    font-size: 0.75rem;
-    color: #8888a0;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.main-nav {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: #4a4a6a;
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 8px 18px;
-    border-radius: 30px;
-    transition: all 0.2s;
-}
-
-.main-nav a:hover {
-    background: #f0f0f5;
-    color: #e94560;
-}
-
-.main-nav a.active {
-    background: #e94560;
-    color: white;
-}
-
-/* === Баннер-колесо === */
-.hero-banner {
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b3d 100%);
-    padding: 60px 0;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-banner::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 70%);
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-text {
-    flex: 1;
-    color: white;
-}
-
-.hero-badge {
-    display: inline-block;
-    background: #e94560;
-    padding: 4px 16px;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-}
-
-.hero-text h2 {
-    font-size: 3.2rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, #ffffff 0%, #c8c8e8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-text p {
-    font-size: 1.1rem;
-    color: #a0a0c0;
-    max-width: 500px;
-    margin-bottom: 24px;
-}
-
-.hero-stats {
-    display: flex;
-    gap: 40px;
-}
-
-.hero-stats div {
-    font-size: 0.95rem;
-    color: #b0b0d0;
-}
-
-.hero-stats strong {
-    display: block;
-    font-size: 2rem;
-    color: white;
-    font-weight: 900;
-}
-
-/* === Большое колесо === */
-.hero-wheel {
-    flex-shrink: 0;
-}
-
-.big-wheel {
-    width: 280px;
-    height: 280px;
-}
-
-.wheel-rim {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: #2a2a4a;
-    box-shadow: inset 0 0 0 14px #3a3a5a, 0 20px 60px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    animation: wheelSpin 25s linear infinite;
-}
-
-@keyframes wheelSpin {
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.wheel-hub {
-    width: 56px;
-    height: 56px;
-    background: #e94560;
+.rim {
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
+    background: #2d2d4a;
+    box-shadow: inset 0 0 0 6px #3d3d5a;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    box-shadow: 0 0 0 8px #1a1a3e, 0 0 0 14px #2a2a4a;
-    z-index: 5;
-    animation: hubGlow 2s ease-in-out infinite alternate;
 }
 
-@keyframes hubGlow {
-    0% { box-shadow: 0 0 0 8px #1a1a3e, 0 0 0 14px #2a2a4a, 0 0 30px rgba(233,69,96,0.3); }
-    100% { box-shadow: 0 0 0 8px #1a1a3e, 0 0 0 14px #2a2a4a, 0 0 60px rgba(233,69,96,0.6); }
+.hub {
+    width: 28px;
+    height: 28px;
+    background: #e94560;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px #1a1a2e;
+    z-index: 5;
 }
 
 .spoke {
     position: absolute;
-    width: 4px;
-    height: 110px;
-    background: linear-gradient(to bottom, #5a5a8a, #3a3a6a);
-    border-radius: 4px;
+    width: 3px;
+    height: 56px;
+    background: #5a5a7a;
+    border-radius: 2px;
     transform-origin: center;
-    box-shadow: 0 0 2px rgba(255,255,255,0.05);
 }
 
-.w1 { transform: rotate(0deg) translateY(-55px); }
-.w2 { transform: rotate(30deg) translateY(-55px); }
-.w3 { transform: rotate(60deg) translateY(-55px); }
-.w4 { transform: rotate(90deg) translateY(-55px); }
-.w5 { transform: rotate(120deg) translateY(-55px); }
-.w6 { transform: rotate(150deg) translateY(-55px); }
-.w7 { transform: rotate(180deg) translateY(-55px); }
-.w8 { transform: rotate(210deg) translateY(-55px); }
-.w9 { transform: rotate(240deg) translateY(-55px); }
-.w10 { transform: rotate(270deg) translateY(-55px); }
-.w11 { transform: rotate(300deg) translateY(-55px); }
-.w12 { transform: rotate(330deg) translateY(-55px); }
+.s1 { transform: rotate(0deg) translateY(-28px); }
+.s2 { transform: rotate(30deg) translateY(-28px); }
+.s3 { transform: rotate(60deg) translateY(-28px); }
+.s4 { transform: rotate(90deg) translateY(-28px); }
+.s5 { transform: rotate(120deg) translateY(-28px); }
+.s6 { transform: rotate(150deg) translateY(-28px); }
+.s7 { transform: rotate(180deg) translateY(-28px); }
+.s8 { transform: rotate(210deg) translateY(-28px); }
+.s9 { transform: rotate(240deg) translateY(-28px); }
+.s10 { transform: rotate(270deg) translateY(-28px); }
+.s11 { transform: rotate(300deg) translateY(-28px); }
+.s12 { transform: rotate(330deg) translateY(-28px); }
 
-/* === Каталог === */
-.catalog {
-    padding: 60px 0;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: #1a1a2e;
-}
-
-.section-header p {
+.wheel-label {
     color: #6a6a8a;
-    font-size: 1.1rem;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    font-weight: 600;
 }
 
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    transition: all 0.3s ease;
-    border: 1px solid #eeeef2;
-}
-
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-    border-color: #e94560;
-}
-
-.product-image {
-    height: 200px;
-    background: linear-gradient(135deg, #f0f2f6 0%, #e4e6ec 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
+/* === РАМА === */
+.frame {
+    flex: 1;
+    background: #161622;
+    border-radius: 30px 30px 50px 50px;
+    padding: 20px 25px 35px;
+    margin: 0 -10px;
     position: relative;
+    box-shadow: 
+        inset 0 0 0 2px #2a2a44,
+        0 10px 40px rgba(0,0,0,0.6);
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
 }
 
-.product-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #e94560;
-    color: white;
+/* Руль */
+.handlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1f1f38;
+    padding: 10px 18px;
+    border-radius: 40px;
+    margin-bottom: 16px;
+    box-shadow: inset 0 -3px 0 #0a0a14;
+}
+
+.nav-links {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: #8a8aaa;
+    text-decoration: none;
     font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 12px;
+    font-weight: 600;
+    padding: 6px 14px;
     border-radius: 30px;
+    transition: 0.2s;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.product-info {
-    padding: 20px 22px 24px;
+.nav-links a:hover {
+    background: #2a2a4a;
+    color: #ddd;
 }
 
-.product-info .brand {
-    font-size: 0.75rem;
-    color: #8888a0;
+.nav-links a.active {
+    background: #e94560;
+    color: white;
+}
+
+.brand-name {
+    color: #e94560;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* Седло */
+.saddle {
+    background: #1a1a30;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+    border-left: 3px solid #e94560;
+    border-right: 3px solid #e94560;
+}
+
+.saddle-text {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.7rem;
+    color: #6a6a8a;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 600;
 }
 
-.product-info h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin: 4px 0 8px;
-    color: #1a1a2e;
-}
-
-.product-info .specs {
-    display: flex;
-    gap: 16px;
-    font-size: 0.8rem;
-    color: #6a6a8a;
-    margin-bottom: 12px;
-}
-
-.product-info .specs span {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.product-price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #f0f0f5;
-    padding-top: 14px;
-}
-
-.product-price {
-    font-size: 1.5rem;
-    font-weight: 800;
+.saddle-text .year {
     color: #e94560;
-}
-
-.product-price small {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: #8888a0;
-}
-
-.product-status {
-    font-size: 0.75rem;
-    color: #22b573;
-    font-weight: 600;
-    background: #e6f7ef;
-    padding: 4px 12px;
-    border-radius: 30px;
-}
-
-/* === Преимущества === */
-.features {
-    background: white;
-    padding: 50px 0;
-    border-top: 1px solid #eeeef2;
-    border-bottom: 1px solid #eeeef2;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-}
-
-.feature-item {
-    text-align: center;
-}
-
-.feature-icon {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-}
-
-.feature-item h4 {
     font-weight: 700;
-    color: #1a1a2e;
+}
+
+/* Содержимое рамы */
+.frame-content {
+    flex: 1;
+    background: #0f0f1e;
+    border-radius: 16px;
+    padding: 16px;
+    min-height: 220px;
+    overflow-y: auto;
+    border: 1px solid #1f1f38;
+}
+
+/* Товары внутри рамы */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.product-card {
+    background: #1a1a30;
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    border-left: 3px solid #e94560;
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+    background: #222242;
+}
+
+.product-card .emoji {
+    font-size: 2rem;
+    display: block;
     margin-bottom: 4px;
 }
 
-.feature-item p {
-    font-size: 0.9rem;
-    color: #6a6a8a;
-}
-
-/* === Подвал === */
-.main-footer {
-    background: #1a1a2e;
-    color: #b0b0c8;
-    padding: 50px 0 20px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    margin-bottom: 30px;
-}
-
-.footer-grid h4 {
-    color: white;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.footer-grid a {
-    display: block;
-    color: #8888a8;
-    text-decoration: none;
-    font-size: 0.9rem;
-    padding: 3px 0;
-    transition: 0.2s;
-}
-
-.footer-grid a:hover {
-    color: #e94560;
-}
-
-.footer-grid p {
-    font-size: 0.9rem;
-    line-height: 1.8;
-}
-
-.footer-bottom {
-    border-top: 1px solid #2a2a4a;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
+.product-card .name {
+    color: #ddd;
+    font-weight: 600;
     font-size: 0.85rem;
 }
 
-.footer-admin {
+.product-card .brand {
+    color: #6a6a8a;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-card .price {
     color: #e94560;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 4px 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+.product-card .badge {
+    display: inline-block;
+    font-size: 0.5rem;
+    background: #e94560;
+    color: white;
+    padding: 1px 10px;
     border-radius: 30px;
-    transition: 0.2s;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.footer-admin:hover {
+.empty-message {
+    color: #4a4a6a;
+    text-align: center;
+    padding: 30px 0;
+    font-style: italic;
+}
+
+/* Педали */
+.pedals {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding: 0 20px;
+}
+
+.pedal {
+    background: #1a1a30;
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    color: #4a4a6a;
+    border: 1px solid #2a2a44;
+}
+
+.left-pedal {
+    border-left: 3px solid #e94560;
+}
+
+.right-pedal {
+    border-right: 3px solid #e94560;
+    cursor: pointer;
+}
+
+.right-pedal:hover {
     background: #2a2a4a;
+    color: #e94560;
 }
 
-/* === Адаптив === */
-@media (max-width: 768px) {
-    .hero-content {
+.admin-trigger {
+    font-size: 1rem;
+}
+
+/* === АДАПТИВ === */
+@media (max-width: 820px) {
+    .bicycle {
         flex-direction: column;
-        text-align: center;
+        gap: 15px;
     }
-    .hero-text h2 {
-        font-size: 2.2rem;
+    .front-wheel,
+    .rear-wheel {
+        flex: 0 0 120px;
     }
-    .hero-stats {
-        justify-content: center;
+    .tire {
+        width: 120px;
+        height: 120px;
+        box-shadow: inset 0 0 0 6px #2a2a44;
     }
-    .big-wheel {
-        width: 200px;
-        height: 200px;
-    }
-    .wheel-rim {
-        width: 200px;
-        height: 200px;
+    .rim {
+        width: 90px;
+        height: 90px;
     }
     .spoke {
-        height: 78px;
+        height: 36px;
     }
-    .w1, .w2, .w3, .w4, .w5, .w6, .w7, .w8, .w9, .w10, .w11, .w12 {
-        transform-origin: center;
+    .s1 { transform: rotate(0deg) translateY(-18px); }
+    .s2 { transform: rotate(30deg) translateY(-18px); }
+    .s3 { transform: rotate(60deg) translateY(-18px); }
+    .s4 { transform: rotate(90deg) translateY(-18px); }
+    .s5 { transform: rotate(120deg) translateY(-18px); }
+    .s6 { transform: rotate(150deg) translateY(-18px); }
+    .s7 { transform: rotate(180deg) translateY(-18px); }
+    .s8 { transform: rotate(210deg) translateY(-18px); }
+    .s9 { transform: rotate(240deg) translateY(-18px); }
+    .s10 { transform: rotate(270deg) translateY(-18px); }
+    .s11 { transform: rotate(300deg) translateY(-18px); }
+    .s12 { transform: rotate(330deg) translateY(-18px); }
+    .hub {
+        width: 20px;
+        height: 20px;
     }
-    .w1 { transform: rotate(0deg) translateY(-39px); }
-    .w2 { transform: rotate(30deg) translateY(-39px); }
-    .w3 { transform: rotate(60deg) translateY(-39px); }
-    .w4 { transform: rotate(90deg) translateY(-39px); }
-    .w5 { transform: rotate(120deg) translateY(-39px); }
-    .w6 { transform: rotate(150deg) translateY(-39px); }
-    .w7 { transform: rotate(180deg) translateY(-39px); }
-    .w8 { transform: rotate(210deg) translateY(-39px); }
-    .w9 { transform: rotate(240deg) translateY(-39px); }
-    .w10 { transform: rotate(270deg) translateY(-39px); }
-    .w11 { transform: rotate(300deg) translateY(-39px); }
-    .w12 { transform: rotate(330deg) translateY(-39px); }
-    .wheel-hub {
-        width: 42px;
-        height: 42px;
-        font-size: 20px;
+    .frame {
+        margin: 0;
+        min-height: 320px;
+        padding: 14px 16px 24px;
     }
-    .header-content {
+    .handlebar {
         flex-direction: column;
+        gap: 8px;
         align-items: stretch;
+    }
+    .nav-links {
+        justify-content: center;
+    }
+    .nav-links a {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+    }
+    .brand-name {
+        text-align: center;
+        font-size: 1rem;
+    }
+    .saddle-text {
+        font-size: 0.6rem;
         gap: 12px;
     }
-    .main-nav {
-        justify-content: center;
-    }
-    .top-bar .container {
-        justify-content: center;
-        text-align: center;
-        font-size: 0.75rem;
-    }
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
     }
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .pedals {
+        padding: 0 10px;
     }
-    .footer-bottom {
-        justify-content: center;
-        text-align: center;
+    .pedal {
+        padding: 4px 14px;
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .product-card .emoji {
+        font-size: 1.5rem;
+    }
+    .product-card .name {
+        font-size: 0.7rem;
+    }
+    .product-card .price {
+        font-size: 0.85rem;
     }
 }
