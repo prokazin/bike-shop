@@ -3,57 +3,45 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Админ-панель | VELO STORE</title>
+    <title>Админ-панель</title>
     <link rel="stylesheet" href="admin-style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div class="admin-container">
-        <div class="admin-header">
-            <div>
+    <div class="admin-wrap">
+        <div class="admin-panel">
+            <div class="admin-head">
                 <h1>🔧 Админ-панель</h1>
-                <span class="admin-sub">VELO STORE — управление каталогом</span>
+                <a href="index.html" class="back">← На сайт</a>
             </div>
-            <a href="index.html" class="back-btn">← На сайт</a>
-        </div>
 
-        <div class="admin-content">
-            <!-- Статистика -->
-            <div class="stats">
-                <div class="stat-card">
-                    <span class="stat-number" id="productCount">0</span>
-                    <span class="stat-label">Товаров</span>
+            <div class="admin-stats">
+                <div class="stat">
+                    <span class="num" id="productCount">0</span>
+                    <span class="label">Товаров</span>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-number" id="totalRevenue">₽ 0</span>
-                    <span class="stat-label">Общая стоимость</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" id="avgPrice">₽ 0</span>
-                    <span class="stat-label">Средняя цена</span>
+                <div class="stat">
+                    <span class="num" id="totalSum">0 ₽</span>
+                    <span class="label">Общая сумма</span>
                 </div>
             </div>
 
-            <!-- Форма добавления -->
             <div class="admin-form">
-                <h2>➕ Добавить товар</h2>
-                <form id="addProductForm">
-                    <input type="text" id="productName" placeholder="Название модели" required />
-                    <input type="text" id="productBrand" placeholder="Бренд (например Trek)" />
-                    <input type="number" id="productPrice" placeholder="Цена в ₽" required />
-                    <input type="text" id="productEmoji" placeholder="Эмодзи (🚴‍♂️)" />
+                <h2>Добавить товар</h2>
+                <form id="addForm">
+                    <input type="text" id="pName" placeholder="Название" required />
+                    <input type="text" id="pBrand" placeholder="Бренд" />
+                    <input type="number" id="pPrice" placeholder="Цена" required />
+                    <input type="text" id="pEmoji" placeholder="Эмодзи" />
                     <button type="submit">Добавить</button>
                 </form>
             </div>
 
-            <!-- Список товаров -->
-            <div class="product-manager">
-                <h2>📦 Управление каталогом</h2>
-                <div id="adminProductList"></div>
+            <div class="admin-list">
+                <h2>Управление</h2>
+                <div id="adminList"></div>
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
