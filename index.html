@@ -3,150 +3,100 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VELO STORE — велосипедный салон</title>
+    <title>Велосипед-сайт</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Верхняя планка -->
-    <div class="top-bar">
-        <div class="container">
-            <span>🚲 Салон велосипедов VELO STORE</span>
-            <span>📍 Москва, ул. Велосипедная, 15</span>
-            <span>📞 +7 (495) 555-01-01</span>
+
+    <!-- ВЕСЬ САЙТ — ЭТО ВЕЛОСИПЕД -->
+    <div class="bicycle">
+
+        <!-- === ПЕРЕДНЕЕ КОЛЕСО === -->
+        <div class="front-wheel">
+            <div class="tire">
+                <div class="rim">
+                    <div class="hub"></div>
+                    <div class="spoke s1"></div>
+                    <div class="spoke s2"></div>
+                    <div class="spoke s3"></div>
+                    <div class="spoke s4"></div>
+                    <div class="spoke s5"></div>
+                    <div class="spoke s6"></div>
+                    <div class="spoke s7"></div>
+                    <div class="spoke s8"></div>
+                    <div class="spoke s9"></div>
+                    <div class="spoke s10"></div>
+                    <div class="spoke s11"></div>
+                    <div class="spoke s12"></div>
+                </div>
+            </div>
+            <div class="wheel-label">🚲 КАТАЛОГ</div>
         </div>
+
+        <!-- === РАМА === -->
+        <div class="frame">
+
+            <!-- Руль (навигация) -->
+            <div class="handlebar">
+                <div class="nav-links">
+                    <a href="#" class="active" data-page="catalog">Каталог</a>
+                    <a href="#" data-page="mountain">Горные</a>
+                    <a href="#" data-page="road">Шоссейные</a>
+                    <a href="#" data-page="electric">Электро</a>
+                    <a href="#" data-page="kids">Детские</a>
+                    <a href="#" data-page="accessories">Аксессуары</a>
+                </div>
+                <div class="brand-name">VELO</div>
+            </div>
+
+            <!-- Седло (информация) -->
+            <div class="saddle">
+                <div class="saddle-text">
+                    <span class="year">с 2005</span>
+                    <span class="slogan">велосипеды для жизни</span>
+                </div>
+            </div>
+
+            <!-- Основное содержимое (рама) -->
+            <div class="frame-content" id="mainContent">
+                <!-- Товары загружаются через JS -->
+            </div>
+
+            <!-- Педали (футер) -->
+            <div class="pedals">
+                <div class="pedal left-pedal">
+                    <span>© 2026</span>
+                </div>
+                <div class="pedal right-pedal">
+                    <span class="admin-trigger" id="adminLink">🔧</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- === ЗАДНЕЕ КОЛЕСО === -->
+        <div class="rear-wheel">
+            <div class="tire">
+                <div class="rim">
+                    <div class="hub"></div>
+                    <div class="spoke s1"></div>
+                    <div class="spoke s2"></div>
+                    <div class="spoke s3"></div>
+                    <div class="spoke s4"></div>
+                    <div class="spoke s5"></div>
+                    <div class="spoke s6"></div>
+                    <div class="spoke s7"></div>
+                    <div class="spoke s8"></div>
+                    <div class="spoke s9"></div>
+                    <div class="spoke s10"></div>
+                    <div class="spoke s11"></div>
+                    <div class="spoke s12"></div>
+                </div>
+            </div>
+            <div class="wheel-label">🚲 АКЦИИ</div>
+        </div>
+
     </div>
-
-    <!-- Шапка -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">🚲</div>
-                    <div>
-                        <h1>VELO STORE</h1>
-                        <span class="logo-sub">с 2005 года</span>
-                    </div>
-                </div>
-                <nav class="main-nav">
-                    <a href="#" class="active">Главная</a>
-                    <a href="#">Горные</a>
-                    <a href="#">Шоссейные</a>
-                    <a href="#">Электро</a>
-                    <a href="#">Детские</a>
-                    <a href="#">Аксессуары</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Баннер-колесо -->
-    <section class="hero-banner">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <span class="hero-badge">🔥 Новинки 2026</span>
-                    <h2>Велосипеды для<br />настоящих гонщиков</h2>
-                    <p>Лучшие модели от мировых брендов. Только оригинальные запчасти и профессиональная сборка.</p>
-                    <div class="hero-stats">
-                        <div><strong>12+</strong> брендов</div>
-                        <div><strong>200+</strong> моделей</div>
-                        <div><strong>98%</strong> довольных клиентов</div>
-                    </div>
-                </div>
-                <div class="hero-wheel">
-                    <div class="big-wheel">
-                        <div class="wheel-rim">
-                            <div class="wheel-hub">⚡</div>
-                            <div class="spoke w1"></div>
-                            <div class="spoke w2"></div>
-                            <div class="spoke w3"></div>
-                            <div class="spoke w4"></div>
-                            <div class="spoke w5"></div>
-                            <div class="spoke w6"></div>
-                            <div class="spoke w7"></div>
-                            <div class="spoke w8"></div>
-                            <div class="spoke w9"></div>
-                            <div class="spoke w10"></div>
-                            <div class="spoke w11"></div>
-                            <div class="spoke w12"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Каталог товаров -->
-    <section class="catalog">
-        <div class="container">
-            <div class="section-header">
-                <h2>🔥 Наш каталог</h2>
-                <p>Выберите свой идеальный велосипед</p>
-            </div>
-            <div class="product-grid" id="productList">
-                <!-- Товары загружаются из JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Преимущества -->
-    <section class="features">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🛠️</div>
-                    <h4>Профессиональная сборка</h4>
-                    <p>Каждый велосипед собирается мастером с 10-летним стажем</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔧</div>
-                    <h4>Гарантия 3 года</h4>
-                    <p>На все велосипеды и запчасти — официальная гарантия</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🚚</div>
-                    <h4>Доставка по России</h4>
-                    <p>Бесплатная доставка при заказе от 50 000 ₽</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⭐</div>
-                    <h4>Тест-драйв</h4>
-                    <p>Приезжайте в салон — прокатитесь перед покупкой</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Подвал -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h4>🚲 VELO STORE</h4>
-                    <p>Салон велосипедов с 2005 года.<br />Только проверенные бренды и качественный сервис.</p>
-                </div>
-                <div>
-                    <h4>Каталог</h4>
-                    <a href="#">Горные велосипеды</a>
-                    <a href="#">Шоссейные велосипеды</a>
-                    <a href="#">Электро-велосипеды</a>
-                    <a href="#">Детские велосипеды</a>
-                </div>
-                <div>
-                    <h4>Контакты</h4>
-                    <p>📍 Москва, ул. Велосипедная, 15</p>
-                    <p>📞 +7 (495) 555-01-01</p>
-                    <p>✉️ info@velostore.ru</p>
-                    <p>🕐 Пн-Вс: 10:00 — 21:00</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 VELO STORE. Все права защищены.</p>
-                <span class="footer-admin" id="adminLink">🔧 Управление</span>
-            </div>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
