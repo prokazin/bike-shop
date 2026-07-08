@@ -1,257 +1,563 @@
-/* style.css — сайт как велосипед */
+/* style.css — реалистичный дизайн велосипедного салона */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
 body {
-    background: #0b1a1e;
-    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f4f6f8;
+    color: #1a1a2e;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* === Верхняя планка === */
+.top-bar {
+    background: #1a1a2e;
+    color: #b0b0c8;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 2px solid #e94560;
+}
+
+.top-bar .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-bar span {
+    display: flex;
     align-items: center;
-    padding: 20px;
+    gap: 6px;
 }
 
-.bike-frame {
-    max-width: 1200px;
-    width: 100%;
-    background: #162b30;
-    border-radius: 60px 60px 30px 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 0 4px #3d6b73;
-    padding: 25px;
-    border-bottom: 12px solid #2b4f57;
+/* === Шапка === */
+.main-header {
+    background: #ffffff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.frame-content {
-    background: #1d3a41;
-    border-radius: 40px 40px 20px 20px;
-    padding: 20px 25px;
-    box-shadow: inset 0 0 0 3px #4a7b85, 0 8px 0 #0e1f23;
-}
-
-/* Руль */
-.handlebar {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background: #2d515a;
-    padding: 12px 24px;
-    border-radius: 60px;
-    margin-bottom: 30px;
-    box-shadow: inset 0 -4px 0 #1a333a, 0 6px 0 #0a181c;
-    gap: 12px;
+    gap: 20px;
 }
 
-.brand {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #f0d89f;
-    text-shadow: 0 2px 0 #a57c3e;
-}
-
-.nav-spokes {
+.logo {
     display: flex;
+    align-items: center;
     gap: 14px;
+}
+
+.logo-icon {
+    font-size: 2.4rem;
+    background: #e94560;
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #1a1a2e;
+    line-height: 1;
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    color: #8888a0;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    display: flex;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
-.nav-spokes a {
-    color: #d4e9ed;
+.main-nav a {
     text-decoration: none;
+    color: #4a4a6a;
     font-weight: 600;
-    padding: 6px 16px;
-    background: #1f3f47;
-    border-radius: 40px;
-    box-shadow: inset 0 -3px 0 #0e252b;
-    transition: 0.15s;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border-radius: 30px;
+    transition: all 0.2s;
 }
 
-.nav-spokes a:hover {
-    background: #3f6b76;
-    transform: translateY(-2px);
+.main-nav a:hover {
+    background: #f0f0f5;
+    color: #e94560;
 }
 
-.cart-bell {
-    background: #c79a4b;
-    padding: 6px 18px;
-    border-radius: 40px;
-    font-weight: 700;
-    color: #1d2f33;
-    box-shadow: inset 0 -3px 0 #8f6e30;
+.main-nav a.active {
+    background: #e94560;
+    color: white;
 }
 
-/* Колесо */
-.wheel-showcase {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    align-items: center;
-    justify-content: center;
-    margin: 15px 0 30px;
+/* === Баннер-колесо === */
+.hero-banner {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b3d 100%);
+    padding: 60px 0;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.wheel-visual {
-    flex: 0 0 220px;
-    height: 220px;
-    text-align: center;
-}
-
-.tire {
-    width: 220px;
-    height: 220px;
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
-    background: #222f33;
-    box-shadow: inset 0 0 0 12px #2d4147, 0 10px 20px rgba(0,0,0,0.6);
+    background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 70%);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    color: white;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: #e94560;
+    padding: 4px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.hero-text h2 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #c8c8e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #a0a0c0;
+    max-width: 500px;
+    margin-bottom: 24px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+}
+
+.hero-stats div {
+    font-size: 0.95rem;
+    color: #b0b0d0;
+}
+
+.hero-stats strong {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    font-weight: 900;
+}
+
+/* === Большое колесо === */
+.hero-wheel {
+    flex-shrink: 0;
+}
+
+.big-wheel {
+    width: 280px;
+    height: 280px;
+}
+
+.wheel-rim {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: #2a2a4a;
+    box-shadow: inset 0 0 0 14px #3a3a5a, 0 20px 60px rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: spin 20s linear infinite;
+    position: relative;
+    animation: wheelSpin 25s linear infinite;
 }
 
-@keyframes spin {
+@keyframes wheelSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.rim {
-    width: 170px;
-    height: 170px;
-    border-radius: 50%;
-    background: #3b5e66;
-    box-shadow: inset 0 0 0 8px #5b8893;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hub {
-    width: 44px;
-    height: 44px;
-    background: #f5d742;
+.wheel-hub {
+    width: 56px;
+    height: 56px;
+    background: #e94560;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    box-shadow: 0 0 0 6px #4c2f1a, 0 6px 0 #3f2a14;
+    font-size: 28px;
+    box-shadow: 0 0 0 8px #1a1a3e, 0 0 0 14px #2a2a4a;
     z-index: 5;
-    transition: 0.2s;
+    animation: hubGlow 2s ease-in-out infinite alternate;
 }
 
-.hub:hover {
-    transform: scale(1.1);
+@keyframes hubGlow {
+    0% { box-shadow: 0 0 0 8px #1a1a3e, 0 0 0 14px #2a2a4a, 0 0 30px rgba(233,69,96,0.3); }
+    100% { box-shadow: 0 0 0 8px #1a1a3e, 0 0 0 14px #2a2a4a, 0 0 60px rgba(233,69,96,0.6); }
 }
 
 .spoke {
     position: absolute;
-    width: 6px;
-    height: 70px;
-    background: #b0c9ce;
-    border-radius: 6px;
+    width: 4px;
+    height: 110px;
+    background: linear-gradient(to bottom, #5a5a8a, #3a3a6a);
+    border-radius: 4px;
     transform-origin: center;
-    box-shadow: 0 0 0 1px #273e44;
+    box-shadow: 0 0 2px rgba(255,255,255,0.05);
 }
 
-.s1 { transform: rotate(0deg) translateY(-35px); }
-.s2 { transform: rotate(45deg) translateY(-35px); }
-.s3 { transform: rotate(90deg) translateY(-35px); }
-.s4 { transform: rotate(135deg) translateY(-35px); }
-.s5 { transform: rotate(180deg) translateY(-35px); }
-.s6 { transform: rotate(225deg) translateY(-35px); }
-.s7 { transform: rotate(270deg) translateY(-35px); }
-.s8 { transform: rotate(315deg) translateY(-35px); }
+.w1 { transform: rotate(0deg) translateY(-55px); }
+.w2 { transform: rotate(30deg) translateY(-55px); }
+.w3 { transform: rotate(60deg) translateY(-55px); }
+.w4 { transform: rotate(90deg) translateY(-55px); }
+.w5 { transform: rotate(120deg) translateY(-55px); }
+.w6 { transform: rotate(150deg) translateY(-55px); }
+.w7 { transform: rotate(180deg) translateY(-55px); }
+.w8 { transform: rotate(210deg) translateY(-55px); }
+.w9 { transform: rotate(240deg) translateY(-55px); }
+.w10 { transform: rotate(270deg) translateY(-55px); }
+.w11 { transform: rotate(300deg) translateY(-55px); }
+.w12 { transform: rotate(330deg) translateY(-55px); }
 
-.wheel-hint {
-    color: #7fa3a8;
-    font-size: 0.8rem;
-    margin-top: 10px;
-    opacity: 0.7;
+/* === Каталог === */
+.catalog {
+    padding: 60px 0;
 }
 
-/* Товары */
-.product-list {
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #1a1a2e;
+}
+
+.section-header p {
+    color: #6a6a8a;
+    font-size: 1.1rem;
+}
+
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
-    flex: 1;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .product-card {
-    background: #264249;
-    padding: 20px 10px;
-    text-align: center;
-    border-radius: 30px 8px 30px 8px;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #e5f0e7;
-    box-shadow: inset 0 -6px 0 #123036, 0 6px 0 #0b1b1f;
-    transition: 0.1s linear;
-    border-left: 4px solid #c7a14b;
-}
-
-.product-card small {
-    display: block;
-    font-size: 0.9rem;
-    color: #f5d98f;
-    margin-top: 6px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    border: 1px solid #eeeef2;
 }
 
 .product-card:hover {
-    transform: scale(0.97);
-    background: #31575f;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    border-color: #e94560;
 }
 
-/* Педали */
-.pedal {
-    margin-top: 25px;
-    background: #1f3d44;
-    padding: 14px 20px;
-    border-radius: 40px;
+.product-image {
+    height: 200px;
+    background: linear-gradient(135deg, #f0f2f6 0%, #e4e6ec 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #e94560;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-info {
+    padding: 20px 22px 24px;
+}
+
+.product-info .brand {
+    font-size: 0.75rem;
+    color: #8888a0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.product-info h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 4px 0 8px;
+    color: #1a1a2e;
+}
+
+.product-info .specs {
+    display: flex;
+    gap: 16px;
+    font-size: 0.8rem;
+    color: #6a6a8a;
+    margin-bottom: 12px;
+}
+
+.product-info .specs span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.product-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f5;
+    padding-top: 14px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #e94560;
+}
+
+.product-price small {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #8888a0;
+}
+
+.product-status {
+    font-size: 0.75rem;
+    color: #22b573;
+    font-weight: 600;
+    background: #e6f7ef;
+    padding: 4px 12px;
+    border-radius: 30px;
+}
+
+/* === Преимущества === */
+.features {
+    background: white;
+    padding: 50px 0;
+    border-top: 1px solid #eeeef2;
+    border-bottom: 1px solid #eeeef2;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
     text-align: center;
-    color: #b7d3d6;
-    font-weight: 500;
-    box-shadow: inset 0 -4px 0 #0f252a;
-    letter-spacing: 0.8px;
 }
 
-/* Адаптив */
-@media (max-width: 650px) {
-    .handlebar {
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.feature-item h4 {
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    color: #6a6a8a;
+}
+
+/* === Подвал === */
+.main-footer {
+    background: #1a1a2e;
+    color: #b0b0c8;
+    padding: 50px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-grid h4 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.footer-grid a {
+    display: block;
+    color: #8888a8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 3px 0;
+    transition: 0.2s;
+}
+
+.footer-grid a:hover {
+    color: #e94560;
+}
+
+.footer-grid p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid #2a2a4a;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+}
+
+.footer-admin {
+    color: #e94560;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 30px;
+    transition: 0.2s;
+}
+
+.footer-admin:hover {
+    background: #2a2a4a;
+}
+
+/* === Адаптив === */
+@media (max-width: 768px) {
+    .hero-content {
         flex-direction: column;
-        gap: 12px;
+        text-align: center;
     }
-    .wheel-visual {
-        flex-basis: 160px;
-        height: 160px;
+    .hero-text h2 {
+        font-size: 2.2rem;
     }
-    .tire {
-        width: 160px;
-        height: 160px;
+    .hero-stats {
+        justify-content: center;
     }
-    .rim {
-        width: 120px;
-        height: 120px;
+    .big-wheel {
+        width: 200px;
+        height: 200px;
+    }
+    .wheel-rim {
+        width: 200px;
+        height: 200px;
     }
     .spoke {
-        height: 50px;
+        height: 78px;
     }
-    .s1 { transform: rotate(0deg) translateY(-25px); }
-    .s2 { transform: rotate(45deg) translateY(-25px); }
-    .s3 { transform: rotate(90deg) translateY(-25px); }
-    .s4 { transform: rotate(135deg) translateY(-25px); }
-    .s5 { transform: rotate(180deg) translateY(-25px); }
-    .s6 { transform: rotate(225deg) translateY(-25px); }
-    .s7 { transform: rotate(270deg) translateY(-25px); }
-    .s8 { transform: rotate(315deg) translateY(-25px); }
-    .hub {
-        width: 34px;
-        height: 34px;
+    .w1, .w2, .w3, .w4, .w5, .w6, .w7, .w8, .w9, .w10, .w11, .w12 {
+        transform-origin: center;
+    }
+    .w1 { transform: rotate(0deg) translateY(-39px); }
+    .w2 { transform: rotate(30deg) translateY(-39px); }
+    .w3 { transform: rotate(60deg) translateY(-39px); }
+    .w4 { transform: rotate(90deg) translateY(-39px); }
+    .w5 { transform: rotate(120deg) translateY(-39px); }
+    .w6 { transform: rotate(150deg) translateY(-39px); }
+    .w7 { transform: rotate(180deg) translateY(-39px); }
+    .w8 { transform: rotate(210deg) translateY(-39px); }
+    .w9 { transform: rotate(240deg) translateY(-39px); }
+    .w10 { transform: rotate(270deg) translateY(-39px); }
+    .w11 { transform: rotate(300deg) translateY(-39px); }
+    .w12 { transform: rotate(330deg) translateY(-39px); }
+    .wheel-hub {
+        width: 42px;
+        height: 42px;
         font-size: 20px;
+    }
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .main-nav {
+        justify-content: center;
+    }
+    .top-bar .container {
+        justify-content: center;
+        text-align: center;
+        font-size: 0.75rem;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-bottom {
+        justify-content: center;
+        text-align: center;
     }
 }
