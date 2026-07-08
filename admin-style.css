@@ -1,0 +1,210 @@
+/* admin-style.css — стили для админ-панели */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: #0b1a1e;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #162b30;
+    border-radius: 40px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 0 3px #3d6b73;
+    border-bottom: 8px solid #2b4f57;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #3d6b73;
+}
+
+.admin-header h1 {
+    color: #f5cb6b;
+    font-size: 2rem;
+    text-shadow: 0 2px 0 #7e602a;
+}
+
+.back-btn {
+    background: #2d515a;
+    color: #d4e9ed;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    box-shadow: inset 0 -3px 0 #1a333a;
+    transition: 0.15s;
+}
+
+.back-btn:hover {
+    background: #3f6b76;
+    transform: translateY(-2px);
+}
+
+.admin-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Статистика */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: #1d3a41;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: inset 0 -4px 0 #0e1f23;
+    border-left: 4px solid #c7a14b;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #f5d98f;
+}
+
+.stat-label {
+    color: #b7d3d6;
+    font-weight: 500;
+}
+
+/* Форма */
+.admin-form {
+    background: #1d3a41;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: inset 0 -4px 0 #0e1f23;
+}
+
+.admin-form h2 {
+    color: #f5d98f;
+    margin-bottom: 15px;
+}
+
+.admin-form form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.admin-form input {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px 18px;
+    border-radius: 40px;
+    border: none;
+    background: #2d4c54;
+    color: #f0f7f0;
+    font-weight: 500;
+    box-shadow: inset 0 -4px 0 #163239;
+    outline: none;
+}
+
+.admin-form input::placeholder {
+    color: #7fa3a8;
+}
+
+.admin-form button {
+    background: #dba943;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 60px;
+    font-weight: 700;
+    color: #111f22;
+    box-shadow: 0 5px 0 #7e602a;
+    cursor: pointer;
+    transition: 0.05s linear;
+    font-size: 1rem;
+}
+
+.admin-form button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #7e602a;
+}
+
+/* Управление товарами */
+.product-manager {
+    background: #1d3a41;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: inset 0 -4px 0 #0e1f23;
+}
+
+.product-manager h2 {
+    color: #f5d98f;
+    margin-bottom: 15px;
+}
+
+#adminProductList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #264249;
+    padding: 12px 18px;
+    border-radius: 15px;
+    border-left: 4px solid #c7a14b;
+    color: #e5f0e7;
+}
+
+.admin-product-item .product-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.admin-product-item .product-price {
+    color: #f5d98f;
+    font-weight: 700;
+}
+
+.admin-product-item .delete-btn {
+    background: #6b3a3a;
+    border: none;
+    color: #ffd0d0;
+    padding: 6px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 0 #3f2222;
+    transition: 0.05s;
+}
+
+.admin-product-item .delete-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 0px 0 #3f2222;
+}
+
+.empty-message {
+    color: #7fa3a8;
+    text-align: center;
+    padding: 30px;
+    font-style: italic;
+}
