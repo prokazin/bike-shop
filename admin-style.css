@@ -1,4 +1,4 @@
-/* admin-style.css — стили админ-панели */
+/* admin-style.css */
 * {
     margin: 0;
     padding: 0;
@@ -6,227 +6,215 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f0f2f6;
-    color: #1a1a2e;
+    background: #0a0e14;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     padding: 30px;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.admin-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: white;
+.admin-wrap {
+    width: 100%;
+    max-width: 800px;
+}
+
+.admin-panel {
+    background: #161622;
     border-radius: 24px;
-    padding: 35px 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    border: 1px solid #e8eaf0;
+    padding: 30px 35px;
+    border: 1px solid #2a2a44;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
-.admin-header {
+.admin-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid #f0f2f6;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #1f1f38;
+    margin-bottom: 24px;
 }
 
-.admin-header h1 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #1a1a2e;
+.admin-head h1 {
+    color: #e94560;
+    font-size: 1.6rem;
 }
 
-.admin-sub {
-    display: block;
-    font-size: 0.85rem;
-    color: #8888a0;
-    font-weight: 400;
-}
-
-.back-btn {
-    background: #1a1a2e;
-    color: white;
+.back {
+    color: #8a8aaa;
     text-decoration: none;
-    padding: 10px 24px;
+    padding: 8px 20px;
     border-radius: 30px;
+    background: #1a1a30;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: 0.2s;
 }
 
-.back-btn:hover {
-    background: #e94560;
-    transform: translateY(-2px);
+.back:hover {
+    background: #2a2a4a;
+    color: white;
 }
 
-.admin-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* Статистика */
-.stats {
+.admin-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
+    margin-bottom: 24px;
 }
 
-.stat-card {
-    background: #f8f9fc;
-    padding: 18px 22px;
-    border-radius: 16px;
-    border-left: 4px solid #e94560;
+.stat {
+    background: #0f0f1e;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border-left: 3px solid #e94560;
 }
 
-.stat-number {
+.stat .num {
     display: block;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
-    color: #1a1a2e;
+    color: white;
 }
 
-.stat-label {
-    font-size: 0.85rem;
-    color: #8888a0;
+.stat .label {
+    font-size: 0.75rem;
+    color: #6a6a8a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Форма */
 .admin-form {
-    background: #f8f9fc;
-    padding: 24px 28px;
+    background: #0f0f1e;
+    padding: 20px 24px;
     border-radius: 16px;
+    margin-bottom: 24px;
 }
 
 .admin-form h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 14px;
+    color: #ddd;
+    font-size: 1rem;
+    margin-bottom: 12px;
 }
 
 .admin-form form {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .admin-form input {
     flex: 1;
-    min-width: 140px;
-    padding: 12px 18px;
-    border: 2px solid #e8eaf0;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    background: white;
+    min-width: 120px;
+    padding: 10px 16px;
+    border-radius: 30px;
+    border: 1px solid #2a2a44;
+    background: #1a1a30;
+    color: white;
+    font-size: 0.9rem;
     outline: none;
-    transition: 0.2s;
 }
 
 .admin-form input:focus {
     border-color: #e94560;
-    box-shadow: 0 0 0 4px rgba(233,69,96,0.1);
 }
 
 .admin-form button {
     background: #e94560;
     color: white;
     border: none;
-    padding: 12px 32px;
-    border-radius: 12px;
+    padding: 10px 28px;
+    border-radius: 30px;
     font-weight: 700;
-    font-size: 0.95rem;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .admin-form button:hover {
     background: #d63851;
-    transform: translateY(-2px);
 }
 
-/* Список товаров */
-.product-manager {
-    background: #f8f9fc;
-    padding: 24px 28px;
+.admin-list {
+    background: #0f0f1e;
+    padding: 20px 24px;
     border-radius: 16px;
 }
 
-.product-manager h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 16px;
+.admin-list h2 {
+    color: #ddd;
+    font-size: 1rem;
+    margin-bottom: 12px;
 }
 
-#adminProductList {
+#adminList {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
-.admin-product-item {
+.admin-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
-    padding: 12px 18px;
-    border-radius: 12px;
-    border: 1px solid #e8eaf0;
-    transition: 0.2s;
+    background: #1a1a30;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border-left: 3px solid #e94560;
 }
 
-.admin-product-item:hover {
-    border-color: #e94560;
-}
-
-.admin-product-item .product-info {
+.admin-item .info {
     display: flex;
-    gap: 16px;
+    gap: 14px;
     align-items: center;
-    font-size: 1rem;
     flex-wrap: wrap;
+    color: #bbb;
+    font-size: 0.9rem;
 }
 
-.admin-product-item .product-brand {
-    color: #8888a0;
-    font-size: 0.85rem;
+.admin-item .info .brand {
+    color: #6a6a8a;
+    font-size: 0.75rem;
 }
 
-.admin-product-item .product-price {
+.admin-item .info .price {
     color: #e94560;
     font-weight: 700;
 }
 
-.delete-btn {
-    background: #fee;
+.admin-item .del {
+    background: #2a1a1a;
     border: none;
-    color: #c0392b;
-    padding: 6px 16px;
+    color: #cc5555;
+    padding: 4px 14px;
     border-radius: 30px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     transition: 0.2s;
 }
 
-.delete-btn:hover {
-    background: #fdd;
-    transform: scale(0.95);
+.admin-item .del:hover {
+    background: #3a2222;
 }
 
-.empty-message {
-    color: #8888a0;
+.empty {
+    color: #4a4a6a;
     text-align: center;
-    padding: 30px;
+    padding: 20px 0;
     font-style: italic;
 }
 
 @media (max-width: 600px) {
-    .admin-container {
+    .admin-panel {
         padding: 20px;
+    }
+    .admin-head {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        text-align: center;
     }
     .admin-form form {
         flex-direction: column;
@@ -234,8 +222,11 @@ body {
     .admin-form input {
         min-width: 100%;
     }
-    .admin-product-item {
+    .admin-item {
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
+    }
+    .admin-stats {
+        grid-template-columns: 1fr;
     }
 }
