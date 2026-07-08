@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Колесо — велосипедный магазин</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="bike-frame">
+        <div class="frame-content">
+            <!-- Руль / навигация -->
+            <header class="handlebar">
+                <h1 class="brand">🚲 КОЛЕСО</h1>
+                <nav class="nav-spokes">
+                    <a href="#">Главная</a>
+                    <a href="#">Велосипеды</a>
+                    <a href="#">Запчасти</a>
+                    <a href="#">Акции</a>
+                    <a href="#">Контакты</a>
+                </nav>
+                <div class="cart-bell">🛎️ Корзина</div>
+            </header>
+
+            <!-- Витрина: колесо + товары -->
+            <section class="wheel-showcase">
+                <div class="wheel-visual">
+                    <div class="tire">
+                        <div class="rim">
+                            <div class="hub">⚡</div>
+                            <div class="spoke s1"></div>
+                            <div class="spoke s2"></div>
+                            <div class="spoke s3"></div>
+                            <div class="spoke s4"></div>
+                            <div class="spoke s5"></div>
+                            <div class="spoke s6"></div>
+                            <div class="spoke s7"></div>
+                            <div class="spoke s8"></div>
+                        </div>
+                    </div>
+                    <p class="wheel-hint">Крути педали! 🚴</p>
+                </div>
+
+                <div class="product-list" id="productList">
+                    <!-- Товары загружаются из JS -->
+                </div>
+            </section>
+
+            <!-- Педали / футер -->
+            <footer class="pedal">
+                <p>© 2026 — сайт как колесо. Всё для велоспорта!</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
